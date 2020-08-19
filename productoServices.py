@@ -1,6 +1,4 @@
 from repositorios import Repositorios
-import random
-from producto import Producto
 
 
 class ProductoService:
@@ -28,18 +26,6 @@ class ProductoService:
     def get_productosList(self):
         pass
 
-    def Iinsertion_sort_precio(self, insertionList, tipoOrden):
-        # Este loop ingresa una tupla con la key y el precio
-        listPrecios = []
-        for i in insertionList:
-            listPrecios.append((i, insertionList[i]["_precio"]))
-
-        for i in range(len(listPrecios)):
-            while listPrecios[i][1] > listPrecios[i-1][1]:
-                listPrecios[i-1][1] = 0
-
-        # Queda ordenar la listPrecios para poder formar el
-        # nuevo diccionario
     def insertion_sort_precio(self, original, tipoOrden):
         insertionList = original
 
@@ -59,12 +45,3 @@ class ProductoService:
                     j -= 1
                 insertionList[j + 1] = iProd
         return insertionList
-
-
-if __name__ == "__main__":
-    serv = ProductoService()
-    for i in range(5):
-        pro = Producto("A", random.randint(100, 200), "B")
-        serv.add_producto(pro)
-
-    print(serv.insertion_sort_precio(Repositorios.productosList, "ascendente"))
