@@ -1,3 +1,10 @@
 language: python
+
 python:
-  - "3.6"
+    - "3.6"
+
+install:
+    - pip install -r requirements.txt
+# command to run tests
+script:
+    - test_producto.py
