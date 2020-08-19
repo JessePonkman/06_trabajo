@@ -5,7 +5,11 @@ python:
 
 install:
     - pip install -r requirements.txt
+
 # command to run tests
 script:
     - pip install parameterized
-    - python3 test_producto.py
+    - coverage run test_producto.py
+
+after_success:
+    - coveralls
